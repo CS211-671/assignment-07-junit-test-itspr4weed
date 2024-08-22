@@ -1,23 +1,33 @@
 package ku.cs.models;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserListTest {
+    UserList users;
+    User user;
+
+    @BeforeEach
+    void init() {
+        users = new UserList();
+    }
 
     @Test
     @DisplayName("User should be found in UserList")
     public void testUserListFindUser() {
         // TODO: add 3 users to UserList
-
+        users.addUser("EZ2WIN", "GGEZ555!");
+        users.addUser("Condo12", "password");
+        users.addUser("Benjyfish", "mala2you");
         // TODO: find one of them
-
+        User user = users.findUserByUsername("Condo12");
         // TODO: assert that UserList found User
-        // String expected = "<one of username>";
-        // String actual = user.getUsername();
-        // assertEquals(expected, actual);
+         String expected = "Condo12";
+         String actual = user.getUsername();
+         assertEquals(expected, actual);
     }
 
     @Test
