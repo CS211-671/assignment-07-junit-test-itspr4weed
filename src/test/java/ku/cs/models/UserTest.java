@@ -20,14 +20,16 @@ class UserTest {
     }
 
     @Test
+    @DisplayName("User should be set a password")
     void testSetPassword() {
         user = new User("john555");
-        String password = user.getPassword();
+        String password = user.getPassword(); // null
         user.setPassword("12345678");
         assertNotEquals(password, user.getPassword());
     }
 
     @Test
+    @DisplayName("Password should be correctly validated")
     void testValidatePassword() {
         user = new User("john555", "12345678");
         assertTrue(user.validatePassword("12345678"));
